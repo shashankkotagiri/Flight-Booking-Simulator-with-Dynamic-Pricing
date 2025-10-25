@@ -1,0 +1,120 @@
+.seat-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 60px 20px;
+  background: url("../assets/flight.jpg") no-repeat center center/cover;
+  background-size: cover;
+}
+
+.seat-card {
+  width: 900px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.12);
+}
+
+.seat-meta {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.seat-meta input {
+  padding: 4px 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.available {
+  margin-left: 12px;
+  color: #666;
+}
+
+.price {
+  font-weight: bold;
+  color: #c62828;
+  margin-left: auto;
+}
+
+.seat-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 16px;
+  max-height: 520px;
+  overflow: auto;
+  padding-right: 8px;
+}
+
+.seat-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.seat-subrow {
+  display: flex;
+  gap: 8px;
+}
+
+.aisle {
+  width: 40px;
+}
+
+.seat-cell {
+  min-width: 48px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  background: #e9e9e9;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.seat-cell:hover {
+  background: #d5d5d5;
+}
+
+.seat-cell.booked {
+  background: #222;
+  color: #fff;
+  cursor: not-allowed;
+  opacity: 0.9;
+}
+
+.seat-cell.selected {
+  background: #c62828;
+  color: #fff;
+}
+
+.seat-actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 18px;
+}
+
+.back-btn,
+.confirm-btn {
+  padding: 12px 18px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: #c62828;
+  color: #fff;
+  font-weight: 700;
+  transition: all 0.2s;
+}
+
+.back-btn:hover,
+.confirm-btn:hover {
+  opacity: 0.95;
+}

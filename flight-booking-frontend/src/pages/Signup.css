@@ -1,0 +1,94 @@
+/* Full page container */
+.signup-container {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Red gradient with design */
+.red-bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #ff3b3b, #d50000);
+  clip-path: ellipse(120% 100% at 50% 0%);
+  z-index: -2;
+}
+
+/* Flight image (Bigger & centered) */
+.flight-bg-big {
+  width: 1200px;
+  height: 700px;
+  object-fit: cover;
+  border-radius: 25px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Center wrapper */
+.signup-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Glass effect login box */
+.signup-card {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(8px);
+  padding: 35px;
+  border-radius: 15px;
+  width: 350px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.signup-card h1 {
+  margin-bottom: 10px;
+  color: #d50000;
+}
+
+.signup-card p {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.signup-card input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.signup-card button {
+  width: 100%;
+  padding: 12px;
+  background-color: #d50000;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.signup-card button:hover {
+  background-color: #b30000;
+}
+
+.login-link {
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+.login-link a {
+  color: #d50000;
+  text-decoration: none;
+}

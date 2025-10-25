@@ -1,0 +1,257 @@
+/* ✅ Background full cover */
+.flight-bg {
+  background: url("../assets/flight.jpg") no-repeat center center/cover;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 0 0;
+  display: block;
+}
+
+.flight-overlay {
+  background: rgba(0, 0, 0, 0.45);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 80px 20px 100px 20px;
+}
+
+.flight-card {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 60px 80px;
+  border-radius: 25px;
+  max-width: 850px;
+  width: 95%;
+  box-shadow: 0 6px 40px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.flight-heading {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #c62828;
+  margin-bottom: 50px;
+  text-transform: uppercase;
+}
+
+.flight-form {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.form-row {
+  display: flex;
+  gap: 35px;
+  flex-wrap: wrap;
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.form-group label {
+  font-weight: 700;
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+  color: black;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 16px;
+  border: 2px solid #ffffff;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.05);
+  font-size: 1rem;
+  color: black;
+  transition: 0.3s ease-in-out;
+}
+
+/* --- NEW STYLES FOR THE DROPDOWN --- */
+.form-group select {
+  width: 100%;
+  padding: 16px;
+  border: 2px solid #ffffff;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.05);
+  font-size: 1rem;
+  color: black;
+  transition: 0.3s ease-in-out;
+  -webkit-appearance: none; /* Removes default OS styling */
+  appearance: none;
+  /* Add a custom dropdown arrow */
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23C62828%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 0.8em auto;
+  padding-right: 2.5rem; /* Make space for the arrow */
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  background: white;
+  border-color: #c62828;
+  box-shadow: 0 0 10px rgba(198, 40, 40, 0.5);
+}
+/* --- END OF NEW STYLES --- */
+
+.search-btn {
+  padding: 16px;
+  background-color: #c62828;
+  color: #ffffff;
+  font-size: 1.3rem;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.search-btn:hover {
+  background-color: #a61717;
+  transform: scale(1.05);
+}
+
+/* Flight results */
+.flight-results {
+  margin-top: 40px;
+  background: #f0f0f0;
+  border: 2px solid #c62828;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.flight-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #ccc;
+  background: white;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.flight-item:last-child {
+  border-bottom: none;
+}
+
+.book-btn {
+  background-color: #c62828;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.book-btn:hover {
+  background-color: #a61717;
+}
+
+/* --- STYLES FOR BOOKINGS PAGE --- */
+/* Wrapper for buttons on booking page */
+.booking-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  min-width: 130px; /* Give it a fixed width */
+}
+/* Cancelled status text */
+.booking-status-cancelled {
+  color: #c62828;
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-align: center;
+}
+/* Cancel button style */
+.cancel-btn {
+  background-color: #888; /* Grey background */
+  width: 100%;
+}
+.cancel-btn:hover {
+  background-color: #666;
+}
+/* Download button style */
+.download-btn {
+  background-color: #1e88e5; /* Blue background */
+  width: 100%;
+}
+.download-btn:hover {
+  background-color: #1565c0;
+}
+/* --- END OF BOOKINGS PAGE STYLES --- */
+
+.no-flights {
+  color: #333;
+  font-size: 1.1rem;
+  text-align: center;
+  padding: 20px 0;
+}
+
+/* 🪑 Seat Selection */
+.seat-selection {
+  text-align: center;
+}
+
+.seats-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  justify-items: center;
+  margin: 30px 0;
+}
+
+.seat-box {
+  background: #eee;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 45px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.seat-box.selected {
+  background: #c62828;
+  color: white;
+}
+
+.seat-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.back-btn,
+.confirm-btn {
+  background-color: #c62828;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.back-btn:hover,
+.confirm-btn:hover {
+  background-color: #a61717;
+}
+
+html,
+body {
+  height: auto;
+  scrollbar-width: none;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
