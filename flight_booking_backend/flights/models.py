@@ -49,7 +49,9 @@ class Flight(models.Model):
 
     def dynamic_price(self, booking_date=None):
         price = float(self.base_price)
-        booked_seats = self.total_seats - self.available_seats
+        
+        # NOTE: We use the *database* value for available_seats for this calculation
+        booked_seats = self.total_seats - self.available_seats 
         booking_ratio = booked_seats / self.total_seats if self.total_seats > 0 else 0
 
         # Seat-based pricing
@@ -90,43 +92,18 @@ class Booking(models.Model):
     cancelled_at = models.DateTimeField(null=True, blank=True)
 
     def save(self, *args, **kwargs):
+        # --- PRICE LOGIC REMOVED ---
+        # The price is now set by the View to prevent recalculation.
+
         # Generate PNR if missing
         if not self.pnr:
-            # simple PNR generator: 6 chars from uuid
+            # simple PNR generator: 8 chars from uuid
             self.pnr = uuid.uuid4().hex[:8].upper()
 
-        price_per_ticket = float(self.flight.dynamic_price(booking_date=datetime.now(timezone.utc)))
-
-        discount = 0
-        surge = 0
-
-        # Early booking discount
-        days_before_departure = (self.flight.departure_datetime - datetime.now(timezone.utc)).days
-        if days_before_departure > 30:
-            discount += 0.10
-
-        # High availability discount
-        available_ratio = self.flight.available_seats / self.flight.total_seats if self.flight.total_seats else 0
-        if available_ratio > 0.7:
-            discount += 0.05
-
-        # Surge pricing for low availability
-        if available_ratio < 0.2:
-            surge += 0.20
-
-        if discount > 0.20:
-            discount = 0.20
-
-        price_per_ticket = price_per_ticket * (1 + surge - discount)
-        self.price_per_ticket = round(price_per_ticket, 2)
-        self.total_price = round(self.seats_booked * price_per_ticket, 2)
-
-        # reduce flight seats only when booking is CONFIRMED (default)
-        if self.status == 'CONFIRMED':
-            # ensure available_seats does not go negative
-            self.flight.available_seats = max(0, self.flight.available_seats - self.seats_booked)
-            self.flight.save()
-
+        # NOTE: The logic to reduce flight.available_seats
+        # has been moved to the SeatBookingView's transaction
+        # to prevent race conditions.
+        
         super().save(*args, **kwargs)
 
     def __str__(self):
@@ -170,3 +147,4 @@ class Payment(models.Model):
 
     def __str__(self):
         return f"Payment {self.id} - {self.payment_status}"
+

@@ -112,3 +112,6 @@ REST_FRAMEWORK = {
         'rest_framework.parsers.JSONParser',
     ]
 }
+# Razorpay Keys (Test Mode)
+RAZORPAY_KEY_ID = "rzp_test_RVbp8FYAzBknWM"
+RAZORPAY_KEY_SECRET = "O8iRyMig3B0RZ57z2qWHYBYB"

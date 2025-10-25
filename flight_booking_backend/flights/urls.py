@@ -5,12 +5,17 @@ from .views import (
     FlightListView, FlightDetailView, SeatListView,
     SeatBookingView, BookingCreateView, UserBookingsView,
     BookingDetailView, BookingCancelView, PaymentCreateView,
-    PaymentListView
+    PaymentListView,
+    UserDetailView  # <-- 1. IMPORT THIS
 )
+from .views import RazorpayOrderView
 
 urlpatterns = [
     path('signup/', SignupView.as_view(), name='signup'),
     path('login/', LoginView.as_view(), name='login'),
+
+    # New path for Profile page
+    path('users/<int:id>/', UserDetailView.as_view(), name='user-detail'), # <-- 2. ADD THIS
 
     path('airlines/', AirlineListView.as_view(), name='airline-list'),
 
@@ -28,4 +33,6 @@ urlpatterns = [
 
     path('bookings/<int:booking_id>/payment/', PaymentCreateView.as_view(), name='create-payment'),
     path('payments/', PaymentListView.as_view(), name='payment-list'),
+    path('bookings/<int:booking_id>/create-razorpay-order/', RazorpayOrderView.as_view(), name='create-razorpay-order'),
 ]
+
