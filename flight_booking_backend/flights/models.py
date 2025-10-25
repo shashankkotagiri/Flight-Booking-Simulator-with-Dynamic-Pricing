@@ -1,4 +1,3 @@
-# flights/models.py
 from django.db import models
 from datetime import datetime, timezone
 import uuid
@@ -92,17 +91,9 @@ class Booking(models.Model):
     cancelled_at = models.DateTimeField(null=True, blank=True)
 
     def save(self, *args, **kwargs):
-        # --- PRICE LOGIC REMOVED ---
-        # The price is now set by the View to prevent recalculation.
-
-        # Generate PNR if missing
         if not self.pnr:
             # simple PNR generator: 8 chars from uuid
             self.pnr = uuid.uuid4().hex[:8].upper()
-
-        # NOTE: The logic to reduce flight.available_seats
-        # has been moved to the SeatBookingView's transaction
-        # to prevent race conditions.
         
         super().save(*args, **kwargs)
 

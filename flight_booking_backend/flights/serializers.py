@@ -1,7 +1,7 @@
 # flights/serializers.py
 from rest_framework import serializers
 from .models import User, Airline, Flight, Booking, Seat, Payment
-from django.utils import timezone  # 👈 1. IMPORT THIS
+from django.utils import timezone 
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -30,14 +30,12 @@ class FlightSerializer(serializers.ModelSerializer):
         ]
 
     def get_dynamic_price(self, obj):
-        # 👇 2. THIS IS THE FIX
-        # Now the serializer will also include time-based pricing
         return obj.dynamic_price(booking_date=timezone.now())
 
     def get_available_seats(self, obj):
         return Seat.objects.filter(flight=obj, is_booked=False).count()
 
-# ... (rest of the file is unchanged)
+
 
 class SeatSerializer(serializers.ModelSerializer):
     class Meta:

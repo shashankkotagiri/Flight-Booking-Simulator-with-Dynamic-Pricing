@@ -5,10 +5,9 @@ from .models import Flight, Seat
 
 @receiver(post_save, sender=Flight)
 def create_seats_for_flight(sender, instance, created, **kwargs):
-    # Create seats only when flight is created and seats don't exist
     if created:
         seats = []
-        # We'll create rows of 6 (A-F). Map numbers to rows.
+
         cols = ['A','B','C','D','E','F']
         total = instance.total_seats
         row = 1
