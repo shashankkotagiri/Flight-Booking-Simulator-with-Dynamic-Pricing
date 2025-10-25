@@ -8,13 +8,13 @@ function SeatSelection() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // const flightFromState = location.state?.flight || null; // <-- This was the problem (stale data)
 
-  // --- FIX: Start with null and add a loading state ---
-  const [flight, setFlight] = useState(null); // <-- Start as null
+
+ 
+  const [flight, setFlight] = useState(null);
   const [seats, setSeats] = useState([]);
-  const [loading, setLoading] = useState(true); // <-- Use a single loading state
-  // --- End Fix ---
+  const [loading, setLoading] = useState(true); 
+
 
   const [numSeats, setNumSeats] = useState(1);
   const [selected, setSelected] = useState([]);
@@ -24,13 +24,13 @@ function SeatSelection() {
   useEffect(() => {
     const fetchFlightAndSeats = async () => {
       try {
-        setLoading(true); // Ensure loading is true at the start
+        setLoading(true); 
 
-        // 1. Fetch REAL, up-to-date flight data
+       
         const flightRes = await api.get(`/flights/${flightId}/`);
-        setFlight(flightRes.data); // <-- This will have the correct, current price
+        setFlight(flightRes.data); 
 
-        // 2. Fetch seats
+       
         const seatRes = await api.get(`/flights/${flightId}/seats/`);
         const sorted = [...seatRes.data].sort(
           (a, b) => Number(a.seat_number) - Number(b.seat_number)
@@ -40,14 +40,14 @@ function SeatSelection() {
       } catch (err) {
         console.error("Error fetching flight/seats:", err);
       } finally {
-        setLoading(false); // <-- Stop loading once all data is fetched
+        setLoading(false); 
       }
     };
 
     fetchFlightAndSeats();
   }, [flightId]);
 
-  // 🎫 Toggle seat selection
+
   const toggleSeat = (seat) => {
     if (seat.is_booked) return;
     if (selected.includes(seat.seat_number)) {
@@ -61,7 +61,7 @@ function SeatSelection() {
     }
   };
 
-  // 💳 Handle confirm and payment
+  
   const handleConfirm = async () => {
     if (selected.length === 0) {
       alert("⚠ Please select at least one seat");
@@ -76,14 +76,14 @@ function SeatSelection() {
     }
 
     try {
-      // 1️⃣ Create booking
+     
       const payload = { user_id: userId, seat_numbers: selected };
       const res = await api.post(`/flights/${flightId}/seats/book/`, payload);
 
       const bookingId = res.data.id;
       const pnr = res.data.pnr || res.data.id;
 
-      // 2️⃣ Create Razorpay order
+     
       const orderRes = await api.post(
         `/bookings/${bookingId}/create-razorpay-order/`
       );
@@ -108,7 +108,6 @@ function SeatSelection() {
             } 
           });
         },
-        // --- END OF UPDATE ---
         prefill: {
           name: "Passenger",
           email: "test@example.com",
@@ -122,13 +121,12 @@ function SeatSelection() {
     } catch (err) {
       console.error("Booking or Payment failed:", err);
       alert(err.response?.data?.error || "Booking failed");
-      // 🧭 refresh seat availability after error
+
       const seatRes = await api.get(`/flights/${flightId}/seats/`);
       setSeats(seatRes.data);
     }
   };
 
-  // 🪑 Arrange seats into rows
   const rows = {};
   seats.forEach((s, index) => {
     const rowNo = Math.floor(index / 6) + 1;
@@ -150,7 +148,7 @@ function SeatSelection() {
         </div>
     );
   }
-  // --- End Fix ---
+  
 
 
   return (

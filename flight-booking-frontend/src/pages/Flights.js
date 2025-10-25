@@ -81,7 +81,6 @@ function Flights() {
                 />
               </div>
 
-              {/* --- THIS IS THE UPDATED DROPDOWN --- */}
               <div className="form-group">
                 <label>Sort</label>
                 <select value={sort} onChange={(e) => setSort(e.target.value)}>
@@ -92,7 +91,6 @@ function Flights() {
                   <option value="duration_desc">Duration (Longest)</option>
                 </select>
               </div>
-              {/* --- END OF UPDATE --- */}
               
             </div>
 

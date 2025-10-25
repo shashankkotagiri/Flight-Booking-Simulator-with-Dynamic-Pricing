@@ -1,12 +1,12 @@
-/* Prevent any scroll */
+
 html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow: hidden;   /* 👈 This stops scrolling */
+  overflow: hidden;
 }
 
-/* Full background image fixed */
+
 .home-bg {
   background: url("../assets/flight.jpg") no-repeat center center fixed;
   background-size: cover;
@@ -17,7 +17,6 @@ html, body {
   align-items: center;
 }
 
-/* Dark transparent overlay */
 .overlay {
   background: rgba(0, 0, 0, 0.55);
   width: 100%;
@@ -27,7 +26,7 @@ html, body {
   align-items: center;
 }
 
-/* Welcome box */
+
 .welcome-box {
   text-align: center;
   color: white;

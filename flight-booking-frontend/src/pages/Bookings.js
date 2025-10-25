@@ -4,18 +4,18 @@ import api from "../api";
 import { toast } from "react-toastify";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
-// --- 1. IMPORT useLocation and useNavigate ---
+// ---  IMPORT useLocation and useNavigate ---
 import { useLocation, useNavigate } from "react-router-dom";
 
 function Bookings() {
   const [bookings, setBookings] = useState([]);
   const userId = localStorage.getItem("user_id");
 
-  // --- 2. GET location and navigate ---
+  //  GET location and navigate 
   const location = useLocation();
   const navigate = useNavigate();
 
-  // --- 3. ADD useEffect to show toast on load ---
+
   useEffect(() => {
     if (location.state?.successMessage) {
       toast.success(location.state.successMessage);
@@ -23,7 +23,7 @@ function Bookings() {
       navigate(location.pathname, { replace: true, state: {} });
     }
   }, [location, navigate]); // Runs when location changes
-  // --- END OF UPDATE ---
+
 
 
   const fetchBookings = useCallback(async () => {

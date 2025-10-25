@@ -1,4 +1,4 @@
-/* Full page container */
+
 .login-container {
   position: relative;
   height: 100vh;
@@ -9,7 +9,6 @@
   overflow: hidden;
 }
 
-/* Red gradient background with design */
 .red-bg-overlay {
   position: absolute;
   top: 0;
@@ -21,7 +20,6 @@
   z-index: -2;
 }
 
-/* Flight image big */
 .flight-bg-big {
   width: 1200px;
   height: 700px;
@@ -30,7 +28,6 @@
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
 }
 
-/* Center wrapper */
 .login-wrapper {
   position: relative;
   display: flex;
@@ -38,7 +35,6 @@
   align-items: center;
 }
 
-/* Glass effect login box */
 .login-card {
   position: absolute;
   background: rgba(255, 255, 255, 0.75);
@@ -92,7 +88,7 @@
   color: #d50000;
   text-decoration: none;
 }
-/* Add this to the end of Login.css */
+
 
 .login-message {
   padding: 10px;

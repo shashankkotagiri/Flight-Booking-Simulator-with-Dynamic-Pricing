@@ -1,9 +1,8 @@
-/* frontend/src/pages/Profile.css */
 .profile-container {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding-top: 80px; /* Increased padding */
+  padding-top: 80px; 
   min-height: 100vh;
   background: url("../assets/flight.jpg") no-repeat center center/cover;
 }

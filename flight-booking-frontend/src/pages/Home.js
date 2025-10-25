@@ -7,7 +7,7 @@ function Home() {
     <>
       <Navbar />
       <div style={{ padding: "0px" }}>
-        <Outlet /> {/* 👈 Nested content will appear here */}
+        <Outlet /> 
       </div>
     </>
   );

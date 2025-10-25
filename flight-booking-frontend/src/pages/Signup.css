@@ -1,4 +1,4 @@
-/* Full page container */
+
 .signup-container {
   position: relative;
   height: 100vh;
@@ -9,7 +9,6 @@
   overflow: hidden;
 }
 
-/* Red gradient with design */
 .red-bg-overlay {
   position: absolute;
   top: 0;
@@ -21,7 +20,6 @@
   z-index: -2;
 }
 
-/* Flight image (Bigger & centered) */
 .flight-bg-big {
   width: 1200px;
   height: 700px;
@@ -30,7 +28,6 @@
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
 }
 
-/* Center wrapper */
 .signup-wrapper {
   position: relative;
   display: flex;
@@ -38,7 +35,6 @@
   align-items: center;
 }
 
-/* Glass effect login box */
 .signup-card {
   position: absolute;
   background: rgba(255, 255, 255, 0.75);

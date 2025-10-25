@@ -15,7 +15,7 @@ function Signup() {
       const res = await api.post("/signup/", { name, email, password });
       console.log("Signup successful:", res.data);
       alert("Account created successfully!");
-      // You can navigate to login after success if needed
+
     } catch (err) {
       console.error("Signup failed:", err);
       alert("Failed to create account!");

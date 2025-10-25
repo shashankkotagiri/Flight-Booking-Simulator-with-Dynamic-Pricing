@@ -1,4 +1,3 @@
-/* ✅ Background full cover */
 .flight-bg {
   background: url("../assets/flight.jpg") no-repeat center center/cover;
   width: 100vw;

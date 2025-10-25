@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./Login.css";
 import api from "../api";
 import flightImage from "../assets/flight.jpg";
-import { toast } from "react-toastify"; // 1. Import toast
+import { toast } from "react-toastify";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -16,17 +16,17 @@ function Login() {
       console.log("Login successful:", res.data);
       localStorage.setItem("user_id", res.data.user_id);
 
-      // 2. Show a SUCCESS toast
+
       toast.success("Login successful! Redirecting...");
 
-      // 3. Force a reload to /home after 1.5 seconds
+     
       setTimeout(() => {
         window.location.href = "/home";
       }, 1500); 
 
     } catch (err) {
       console.error("Login failed:", err);
-      // 4. Show an ERROR toast
+      
       toast.error("Invalid credentials!");
     }
   };

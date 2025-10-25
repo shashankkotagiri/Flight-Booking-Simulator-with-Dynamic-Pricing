@@ -1,7 +1,7 @@
 import React from "react";
 import "./Home.css";
 import { useNavigate } from "react-router-dom";
-import flightImg from "../assets/flight.jpg"; // your background image
+import flightImg from "../assets/flight.jpg"; 
 
 const HomeContent = () => {
   const navigate = useNavigate();

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import api from "../api";
-import "./Profile.css"; // We will create this file next
+import "./Profile.css"; 
 import { toast } from "react-toastify";
 
 function Profile() {
@@ -9,7 +9,7 @@ function Profile() {
 
   useEffect(() => {
     if (userId) {
-      // Fetch user data from the /users/<id>/ endpoint
+     
       api.get(`/users/${userId}/`)
         .then(res => {
           setUser(res.data);
